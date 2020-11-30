@@ -15,6 +15,7 @@ export default class RenderingElements extends Component {
                 <h3>Rendering Elements</h3>
                 {this.renderInfo()}
             </div>
+            
         )
     }
 }
