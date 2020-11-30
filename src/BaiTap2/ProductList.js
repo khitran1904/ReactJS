@@ -14,12 +14,15 @@ export default class ProductList extends Component {
         }
     }
 
-
     selectProduct = (product) => {
         this.setState({
             producDetail: product,
         });
     };
+
+    addToCart= (product) => {
+        console.log(product)
+    }
 
     render() {
         const { productList } = this.props;
@@ -40,6 +43,7 @@ export default class ProductList extends Component {
                                         {/* Khi ProductItem gọi detailProduct() thì productList chạy hàm selectProduct */}
                                         <ProductItem 
                                             product={product}
+                                            onAddToCart={this.addToCart}
                                             onSelect={(product) => this.selectProduct(product)} 
                                             //onSelect={this.selectProduct}/>
                                         />

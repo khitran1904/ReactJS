@@ -11,6 +11,8 @@ export default class ProductItem extends Component {
         const {onSelect} = this.props;
         onSelect(product);
     }
+
+    
     render() {
         const {product} = this.props;
         return (
@@ -20,7 +22,7 @@ export default class ProductItem extends Component {
                     <h4 className="card-title text-center">{product.name}</h4>
                     <p className="card-text"> {product.price} </p>
                     <button  className="btn btn-primary" onClick={() => this.detailProduct(product)} >Detail</button>
-                    <button href="#" className="btn btn-danger">Cart</button>
+                    <button href="#" className="btn btn-danger" onClick={()=>this.props.onAddToCart(product)} >Cart</button>
                 </div>
             </div>
 

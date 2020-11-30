@@ -12,6 +12,12 @@ export default class RenderArray extends Component {
                 { maSP: 4, tenSP: "nokia", gia: 4000 }
             ]
         };
+        this.mangsanpham1= [
+            { maSP: 1, tenSP: "iphone x", gia: 1000 },
+            { maSP: 2, tenSP: "iphone 11", gia: 2000 },
+            { maSP: 3, tenSP: "iphone 12", gia: 3000 },
+            { maSP: 4, tenSP: "nokia", gia: 4000 }
+        ]
     }
 
     // Cách 2.1
@@ -44,7 +50,7 @@ export default class RenderArray extends Component {
                 {/* <h2>ád</h2> */}
                 <div>
                     {/* Cách 1 */}
-                    {this.state.mangsanpham.map(item => {
+                    {this.mangsanpham1.map(item => {
                         return (
                             <p>MaSP : {item.maSP}  - TenSP :{item.tenSP} -  Gia: {item.gia} </p>
                         );

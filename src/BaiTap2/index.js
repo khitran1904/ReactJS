@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Carousel from './Carousel';
 import ProductList from './ProductList';
+import Cart from './Cart';
 
 
 
@@ -21,14 +22,21 @@ export default class BaiTap2 extends Component {
         }
     }
 
+    addToCart = (product) =>{
+
+    }
+
     render() {
         return (
             
             <div >
                 <Header/>
                 <Carousel/>
-                <ProductList productList={this.state.productList} />
+                <button className=" btn btn-success" data-toggle="modal" data-target="#cart" >Giỏ Hàng</button>
+                <ProductList productList={this.state.productList} onAddToCart={this.addToCart} />
                 <Footer/>
+                <Cart/>
+
             </div>
         )
     }
