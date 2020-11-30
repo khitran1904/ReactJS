@@ -10,12 +10,13 @@ import RenderArray from './render-array';
 import Wellcome from './props/Wellcome';
 import WellcomeFunc from './props/WellcomeFunc';
 import Button from './props/Button';
+import User from './UserManagement';
 
 
 function App() {
   return (
     <div>
-      <BaiTap2/>
+      {/* <BaiTap2/> */}
       {/* <RenderingElements/>
       <hr/>
       <HandlingEvents/>
@@ -36,9 +37,11 @@ function App() {
       <WellcomeFunc name1="dan" />
       <WellcomeFunc name1="khai"  age={12} /> */}
 
-      <Button variant="primary" size="lg" > <h3>Hello</h3> </Button>
+      {/* <Button variant="primary" size="lg" > <h3>Hello</h3> </Button>
       <Button variant="secondary" size="sm" />
-      <Button variant="primary" size="lg" disabled="true" />
+      <Button variant="primary" size="lg" disabled="true" /> */}
+      
+      <User/>
     </div>
   );
 }

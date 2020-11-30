@@ -1,0 +1,36 @@
+[
+    {
+      "id" :1,
+      "userName":"jack",
+      "fullName":"jack sparow",
+      "email":"123@gmail.com",
+      "position":"dev",
+      "birth":"19-04"
+    },
+    
+    {
+        "id" :2,
+        "userName":"jonh",
+        "fullName":"jonh nalhan",
+        "email":"456@gmail.com",
+        "position":"PM",
+        "birth":"9-2"
+    },
+    {
+        "id" :3,
+        "userName":"may",
+        "fullName":"may conor",
+        "email":"789@gmail.com",
+        "position":"dev2",
+        "birth":"1-5"
+    },
+    {
+        "id" :4,
+        "userName":"jmin",
+        "fullName":"sunHo ",
+        "email":"001@gmail.com",
+        "position":"dev1",
+        "birth":"1-12"
+    }
+  
+]

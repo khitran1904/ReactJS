@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
 export default class Cart extends Component {
+
+
+
     render() {
+        const { cartList } = this.props;
         return (
             <div>
                 {/* Button trigger modal */}
-                
+
                 {/* Modal */}
                 <div className="modal fade" id="cart" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                     <div className="modal-dialog" role="document">
@@ -23,7 +27,26 @@ export default class Cart extends Component {
                                         <th>Tên Sản Phẩm</th>
                                         <th>Hình ảnh</th>
                                         <th>Giá</th>
+                                        <th>Số Lượng</th>
+                                        <th>Giá</th>
                                     </thead>
+
+                                    <tbody>
+                                        {
+                                            cartList.map((item1) => {
+                                                return (
+                                                    <tr>
+                                                        <td> {item1.id}</td>
+                                                        <td>{item1.name} </td>
+                                                        <td><img src={item1.image} alt="product" width="50" height="50" /> </td>
+                                                        <td>{item1.price} </td>
+                                                        <td>{item1.quality} </td>
+                                                        <td>{(item1.price * item1.quality).toLocaleString()} </td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
                                 </table>
                             </div>
                             <div className="modal-footer">

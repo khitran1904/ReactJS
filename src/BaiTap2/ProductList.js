@@ -21,7 +21,7 @@ export default class ProductList extends Component {
     };
 
     addToCart= (product) => {
-        console.log(product)
+        this.props.onAddToCart(product);
     }
 
     render() {
