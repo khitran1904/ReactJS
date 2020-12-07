@@ -26,7 +26,8 @@ export default class UserList extends Component {
                 <tbody>
                     {userList.map((user) => {
                         return (
-                            <UserItem key={user.id} user={user} onDelete={this.handelDelete} />
+                            <UserItem key={user.id} user={user} onDelete={this.handelDelete}
+                                     onSelect={()=>this.props.onSelect(user)} />
                         );
                     })}
                 </tbody>

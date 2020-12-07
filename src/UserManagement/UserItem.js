@@ -15,7 +15,8 @@ export default class UserItem extends Component {
                 <td> {user.position} </td>
                 <td>
                     <button className="btn btn-danger" onClick={() => onDelete(user.id)} > Delete</button>
-                    <button className="btn btn-primary" >Upgrade</button>
+                    <button className="btn btn-primary" data-toggle="modal" data-target="#formUser" 
+                            onClick={() => this.props.onSelect(user)} >Upgrade</button>
                 </td>
             </tr>
         )
