@@ -12,6 +12,7 @@ import WellcomeFunc from './props/WellcomeFunc';
 import Button from './props/Button';
 import User from './UserManagement';
 import LifeCircle from './UserManagement/lifeCircle';
+import UserManagementRedux from './UserManagementRedux';
 
 
 function App() {
@@ -42,8 +43,9 @@ function App() {
       <Button variant="secondary" size="sm" />
       <Button variant="primary" size="lg" disabled="true" /> */}
       
-      <User/>
-      <LifeCircle/>
+      {/* <User/>
+      <LifeCircle/> */}
+      <UserManagementRedux/>
     </div>
   );
 }

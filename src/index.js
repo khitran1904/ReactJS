@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './style/style';
+import {createStore} from  'redux'; // component tạo store
+import {Provider} from 'react-redux'; // component kết nối react vs redux lại với nhau
+import rootReducer from './redux/reducers';
+
+
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}> 
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
