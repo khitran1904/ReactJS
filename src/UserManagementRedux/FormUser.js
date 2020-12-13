@@ -1,29 +1,48 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 
-export default class FormUser extends Component {
+class FormUser extends Component {
     constructor(props) {
         super(props)
+
+        // Quản lí input ko cần đưa lên redux store
+        // VÌ những state này ko cần chia sẻ cho các component khác
+        this.state = {
+            userName: "",
+            fullName: "",
+            birth: "",
+            email: "",
+            position: "",
+        }
     }
 
-    // handleChange = (evt) => {
-    //     console.log(evt.target.name, evt.target.value)
 
-    //     this.setState({
-    //         [evt.target.name]: evt.target.value
-    //     })
-    // }
-    // handleSave = () => {
-    //     if (this.state.id) {
-    //         this.props.onUpdateUser(this.state)
-    //     }
-    //     else {
-    //         console.log(this.state)
-    //         this.props.userAdd(this.state);
-    //     }
-    // }
+    handleChange = (evt) => {
+        this.setState({
+            [evt.target.name]: evt.target.value
+        })
+    }
+    handleSubmit = () => {
+        this.props.onSubmit(this.state);
+    }
+    componentDidUpdate(prevProps,prevState){
+        // debugger;
+        // khi state selectedUser trên userReducer thay đổi => this.props.selectedUser thay đổi
+        // => re-render => chạy componentDidUpdate
+        if(prevProps.selectedUser.id !== this.props.selectedUser.id){ // so sánh id của 2 user
+            this.setState({
+                id: this.props.selectedUser.id ,
+                userName: this.props.selectedUser.userName || "",
+                birth: this.props.selectedUser.birth || "",
+                email: this.props.selectedUser.email || "",
+                position: this.props.selectedUser.position || "",
+                fullName: this.props.selectedUser.fullName || "",
+            })
+        }
+    }
 
     render() {
-        console.log(this.props.selectedUser)
+        // console.log(this.props.selectedUser)
         return (
             <div>
                 {/* Button trigger modal */}
@@ -63,7 +82,7 @@ export default class FormUser extends Component {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" className="btn btn-primary" onClick={this.handleSave} >Save</button>
+                                <button type="button" className="btn btn-primary" onClick={this.handleSubmit} >Submit</button>
                             </div>
                         </div>
                     </div>
@@ -73,3 +92,24 @@ export default class FormUser extends Component {
         )
     }
 }
+
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubmit: (user) => {   // onSubmit là key : có giá trị là 1 function
+            const action = {
+                type: "SUBMIT_USER",
+                value: user,
+            };
+            dispatch(action);
+        },
+    };
+}
+
+const mapStateToProps = (state) => {
+    return {
+        selectedUser:state.userReducer.selectedUser
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormUser);

@@ -1,3 +1,4 @@
+import {SELECT_USER} from '../constants/User'
 // quản lí các state của userManagement
 
 // Gồm 2 tp chính
@@ -42,6 +43,7 @@ const initialState ={
       
     ],
     search:"",
+    selectedUser:"",
 };
 
 // Hàm này nhận vào 2 tham số 
@@ -64,7 +66,38 @@ const userReducer = (state=initialState, action) => {
                 return user.id !== action.value;
             });
             return {...state,userList}
+        case "SUBMIT_USER": 
+            console.log(action);
+            // debugger;  đặt debug code
             
+            //user đã tồn tại => update
+            if(action.value.id){
+                // Cách 1
+                const userListNew = [...state.userList];
+                const index = userListNew.findIndex(
+                    (item) => item.id === action.value.id
+                );
+                userListNew[index] = action.value;
+                return {...state,userList: userListNew }
+            }
+            else{
+                const id = Math.floor(Math.random()*100);
+            //Cách 1
+            // const userListNew = [...state.userList];
+            // userListNew.push({...action.value,id})
+            // return {...state,userList:userListNew};
+
+            //Cách 2
+            return {
+                ...state,
+                userList:[...state.userList,{...action.value,id}]
+            }
+            }
+
+        case SELECT_USER:
+            console.log(action);
+            return {...state,
+                selectedUser:action.value}
         default:
             return state;
     }

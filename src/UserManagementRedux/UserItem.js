@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
+import {seclectUserAction} from '../redux/action/User'
 
 class UserItem extends Component {
     
@@ -15,7 +16,7 @@ class UserItem extends Component {
                 <td>
                     <button className="btn btn-danger" onClick={() => this.props.deleteUser(user.id)}  > Delete</button>
                     <button className="btn btn-primary" data-toggle="modal" data-target="#formUser" 
-                            onClick={() => this.props.onSelect(user)} >Upgrade</button>
+                            onClick={() => this.props.selectUser(user)} >Upgrade</button>
                 </td>
             </tr>
         )
@@ -30,9 +31,18 @@ const mapDispatchToProps = (dispatch) => {
                 type : "DELETE_USER",
                 value:userId,
             }
-            dispatch(action); // object nên ko cần ngoặc
-        }
-    }
+            dispatch(action); // action là 1 object nên ko cần ngoặc
+        },
+        // selectUser:(user) => {
+        //     const action ={
+        //         type : "SELECT_USER",
+        //         value:user,
+        //     }
+        //     dispatch(action);
+        // }
+        selectUser: (user) => dispatch(seclectUserAction(user)),
+    };
 }
+
 
 export default connect(null,mapDispatchToProps)(UserItem);

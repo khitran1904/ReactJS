@@ -13,6 +13,7 @@ import Button from './props/Button';
 import User from './UserManagement';
 import LifeCircle from './UserManagement/lifeCircle';
 import UserManagementRedux from './UserManagementRedux';
+import ToDoList from './ToDoList';
 
 
 function App() {
@@ -45,7 +46,8 @@ function App() {
       
       {/* <User/>
       <LifeCircle/> */}
-      <UserManagementRedux/>
+      {/* <UserManagementRedux/> */}
+      <ToDoList/>
     </div>
   );
 }

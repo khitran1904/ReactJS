@@ -20,7 +20,7 @@ export default class ProductList extends Component {
         });
     };
 
-    addToCart= (product) => {
+    addToCart = (product) => {
         this.props.onAddToCart(product);
     }
 
@@ -37,15 +37,15 @@ export default class ProductList extends Component {
                             return (
                                 <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
                                     <div className="container">
-                                        {/* để truyền dữ liệu từ component con lên conponent cha, ở component cha ta sẽ truyền cho component
+                                        {/* để truyền dữ liệu từ component con lên component cha, ở component cha ta sẽ truyền cho component
                                         con 1 props là 1 callback function , trong component con khi gọi tới props đó
                                         thì component cha sẽ chạy hàm callback */}
                                         {/* Khi ProductItem gọi detailProduct() thì productList chạy hàm selectProduct */}
-                                        <ProductItem 
+                                        <ProductItem
                                             product={product}
                                             onAddToCart={this.addToCart}
-                                            onSelect={(product) => this.selectProduct(product)} 
-                                            //onSelect={this.selectProduct}/>
+                                            onSelect={(product) => this.selectProduct(product)}
+                                        //onSelect={this.selectProduct}/>
                                         />
                                     </div>
                                 </div>
@@ -56,16 +56,16 @@ export default class ProductList extends Component {
                 </div>
 
                 {/* chi tiết sản phẩm  */}
-                {this.state.producDetail && (
+                {this.state.productDetail && (
                     <div className="row" >
-                    <div className="col-sm-6">
-                    <img src={this.state.producDetail.image} alt="đá" width="300" height="300" />
+                        <div className="col-sm-6">
+                            <img src={this.state.productDetail.image} alt="đá" width="300" height="300" />
+                        </div>
+                        <div className="col-sm-6">
+                            <h3 > {this.state.productDetail.name}</h3>
+                            <p>{this.state.productDetail.price} </p>
+                        </div>
                     </div>
-                    <div className="col-sm-6">
-                        <h3 > {this.state.producDetail.name}</h3>
-                        <p>{this.state.producDetail.price} </p>
-                    </div>
-                </div>
                 )}
 
             </section>
