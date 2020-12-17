@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './style/style';
-import {createStore} from  'redux'; // component tạo store
+import {createStore,applyMiddleware,compose} from  'redux'; // component tạo store
 import {Provider} from 'react-redux'; // component kết nối react vs redux lại với nhau
 import rootReducer from './redux/reducers';
+import thunk from "redux-thunk";
 
+const enhanceCompose= compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-
-const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, enhanceCompose);
 
 ReactDOM.render(
   <Provider store={store}> 

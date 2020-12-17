@@ -14,6 +14,7 @@ import User from './UserManagement';
 import LifeCircle from './UserManagement/lifeCircle';
 import UserManagementRedux from './UserManagementRedux';
 import ToDoList from './ToDoList';
+import Movie from './Movie';
 
 
 function App() {
@@ -47,7 +48,8 @@ function App() {
       {/* <User/>
       <LifeCircle/> */}
       {/* <UserManagementRedux/> */}
-      <ToDoList/>
+      {/* <ToDoList/> */}
+      <Movie/>
     </div>
   );
 }
