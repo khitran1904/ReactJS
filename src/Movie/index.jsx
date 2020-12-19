@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // Import thư viện axios
-import axios from "axios";
+// import axios from "axios";
 import { connect } from "react-redux";
 import { getMovieList } from "../redux/action/Movie";
 
@@ -11,6 +11,17 @@ class Movie extends Component {
     }
 
     render() {
+        const {loading,error}=this.props;
+        if(loading){
+           return (
+            <p className="text-center text-primary" >Loading ... </p>
+           )
+        }
+        if(error){ 
+            return (
+                <p className="text-center text-primary" >{error} </p>
+               )
+        }
         return (
             <div className="container" >
                 <div className="row" >
@@ -41,6 +52,8 @@ const mapDispatchToProps = (dispatch) =>{
 const mapStateToProps= state =>{
     return{
         movieList:state.movieReducer.movieList,
+        loading:state.movieReducer.loading,
+        error:state.movieReducer.error,
     }
 }
 
